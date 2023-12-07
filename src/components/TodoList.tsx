@@ -1,6 +1,7 @@
-import {todos} from '../state';
+import {Signal} from '@preact/signals-react';
+import {Todo} from '../types';
 
-export const TodoList = () => {
+export const TodoList = ({todos}: {todos: Signal<Todo[]>}) => {
   const toggleTodo = (todoId: string) => {
     todos.value = todos.value.map((todo) => {
       if (todo.id === todoId) {
