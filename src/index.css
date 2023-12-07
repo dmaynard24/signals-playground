@@ -36,3 +36,7 @@
 body {
   @apply p-4;
 }
+
+input, button {
+  @apply accent-cyan-600 outline-cyan-600 dark:accent-cyan-300 dark:outline-cyan-300;
+}

@@ -41,13 +41,13 @@ export const TodoList: React.FC = () => {
             placeholder="New todo"
             value={newTodo}
             onChange={(e) => setNewTodo(e.target.value)}
-            className="flex-grow rounded-md px-4 mr-2 text-slate-900"
+            className="flex-grow rounded-md px-4 mr-2 border-slate-300 border dark:border-none text-slate-900"
             autoFocus
           />
           <button
             type="submit"
             disabled={newTodo.trim().length === 0}
-            className="py-1 px-4 bg-cyan-300 text-slate-700 last:rounded-full disabled:opacity-60"
+            className="py-1 px-4 bg-cyan-600 text-white dark:bg-cyan-300 dark:text-slate-700 last:rounded-full disabled:text-opacity-60"
           >
             Add Todo
           </button>
