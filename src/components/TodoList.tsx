@@ -1,34 +1,29 @@
 import * as React from 'react';
-import {nanoid} from 'nanoid';
-
-const createNewTodo = (name: string) => ({
-  id: nanoid(),
-  name,
-  done: false,
-});
-const DEFAULT_TODOS = ['Learn Signals', 'Walk the Dog', 'Pay Rent'].map(createNewTodo);
+import {DEFAULT_TODOS} from '../constants';
+import {createNewTodo} from '../util';
 
 export const TodoList: React.FC = () => {
   const [todos, setTodos] = React.useState(DEFAULT_TODOS);
   const [newTodo, setNewTodo] = React.useState('');
 
   const addTodo = (e: React.FormEvent) => {
-    e.preventDefault(); // prevent page reload
+    e.preventDefault();
 
     setTodos([...todos, createNewTodo(newTodo)]);
   };
 
   const toggleTodo = (todoId: string) => {
-    const updatedTodos = todos.map((todo) => {
-      if (todo.id === todoId) {
-        return {
-          ...todo,
-          done: !todo.done,
-        };
-      }
-      return todo;
+    setTodos((prevTodos) => {
+      return prevTodos.map((todo) => {
+        if (todo.id === todoId) {
+          return {
+            ...todo,
+            done: !todo.done,
+          };
+        }
+        return todo;
+      });
     });
-    setTodos(updatedTodos);
   };
 
   return (
