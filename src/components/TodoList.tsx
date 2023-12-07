@@ -57,7 +57,8 @@ export const TodoList: React.FC = () => {
       {todos.map((todo) => (
         <div key={todo.id} className="mb-1">
           <label>
-            <input type="checkbox" checked={todo.done} onChange={() => toggleTodo(todo.id)} /> {todo.name}
+            <input type="checkbox" checked={todo.done} onChange={() => toggleTodo(todo.id)} />{' '}
+            <span className={todo.done ? 'line-through' : ''}>{todo.name}</span>
           </label>
         </div>
       ))}
