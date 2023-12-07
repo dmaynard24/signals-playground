@@ -1,9 +1,14 @@
 import {useState, FormEvent} from 'react';
-import {DEFAULT_TODOS} from '../constants';
-import {createNewTodo} from '../util';
+import {createNewTodo} from '../utils';
+import {Todo} from '../types';
 
-export const TodoList = () => {
-  const [todos, setTodos] = useState(DEFAULT_TODOS);
+export const TodoList = ({
+  todos,
+  setTodos,
+}: {
+  todos: Todo[];
+  setTodos: React.Dispatch<React.SetStateAction<Todo[]>>;
+}) => {
   const [newTodo, setNewTodo] = useState('');
 
   const addTodo = (e: FormEvent) => {
