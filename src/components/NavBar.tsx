@@ -1,6 +1,4 @@
-import * as React from 'react';
-
-export const NavBar: React.FC = () => {
+export const NavBar = () => {
   return (
     <nav className="flex justify-between pb-4 mb-6 border-b-slate-300 dark:border-b-white border-opacity-30 border-b-2">
       <strong>📝 MY TODO APP</strong>

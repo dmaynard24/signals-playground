@@ -1,12 +1,12 @@
-import * as React from 'react';
+import {useState, FormEvent} from 'react';
 import {DEFAULT_TODOS} from '../constants';
 import {createNewTodo} from '../util';
 
-export const TodoList: React.FC = () => {
-  const [todos, setTodos] = React.useState(DEFAULT_TODOS);
-  const [newTodo, setNewTodo] = React.useState('');
+export const TodoList = () => {
+  const [todos, setTodos] = useState(DEFAULT_TODOS);
+  const [newTodo, setNewTodo] = useState('');
 
-  const addTodo = (e: React.FormEvent) => {
+  const addTodo = (e: FormEvent) => {
     e.preventDefault();
 
     setTodos([...todos, createNewTodo(newTodo)]);
