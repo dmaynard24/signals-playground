@@ -4,7 +4,7 @@ import {NavBar} from './components/NavBar';
 import {Todos} from './components/Todos';
 import {DEFAULT_TODOS} from './constants';
 
-function App() {
+export const App = () => {
   const todos = useSignal(DEFAULT_TODOS);
 
   return (
@@ -14,6 +14,4 @@ function App() {
       <Footer />
     </>
   );
-}
-
-export default App;
+};
