@@ -1,14 +1,15 @@
-import { Dispatch, FormEvent, SetStateAction, useState } from 'react';
+import { Signal } from '@preact/signals-react';
+import { FormEvent, useState } from 'react';
 import { Todo } from '../types';
 import { createNewTodo } from '../utils';
 
-export const AddTodo = ({ todos, setTodos }: { todos: Todo[]; setTodos: Dispatch<SetStateAction<Todo[]>> }) => {
+export const AddTodo = ({ todos }: { todos: Signal<Todo[]> }) => {
   const [newTodo, setNewTodo] = useState('');
 
   const addTodo = (e: FormEvent) => {
     e.preventDefault();
 
-    setTodos([...todos, createNewTodo(newTodo)]);
+    todos.value = [...todos.value, createNewTodo(newTodo)];
   };
 
   return (

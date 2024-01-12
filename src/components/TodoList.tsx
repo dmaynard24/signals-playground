@@ -1,25 +1,23 @@
-import { Dispatch, SetStateAction } from 'react';
+import { Signal } from '@preact/signals-react';
 import { Todo } from '../types';
 
-export const TodoList = ({ todos, setTodos }: { todos: Todo[]; setTodos: Dispatch<SetStateAction<Todo[]>> }) => {
+export const TodoList = ({ todos }: { todos: Signal<Todo[]> }) => {
   const toggleTodo = (todoId: string) => {
-    setTodos(
-      todos.map((todo) => {
-        if (todo.id === todoId) {
-          return {
-            ...todo,
-            done: !todo.done,
-          };
-        }
-        return todo;
-      }),
-    );
+    todos.value = todos.value.map((todo) => {
+      if (todo.id === todoId) {
+        return {
+          ...todo,
+          done: !todo.done,
+        };
+      }
+      return todo;
+    });
   };
 
   return (
     <>
       <h2 className="mb-2">Todo List</h2>
-      {todos.map((todo) => (
+      {todos.value.map((todo) => (
         <div key={todo.id} className="mb-1">
           <label>
             <input type="checkbox" checked={todo.done} onChange={() => toggleTodo(todo.id)} />{' '}
