@@ -1,7 +1,9 @@
 @tailwind base;
 
 @layer base {
-  h1, h2, h3 {
+  h1,
+  h2,
+  h3 {
     font-weight: bold;
   }
 
@@ -17,7 +19,6 @@
     @apply text-xl;
   }
 }
-
 
 @tailwind components;
 @tailwind utilities;
@@ -37,6 +38,7 @@ body {
   @apply p-4;
 }
 
-input, button {
+input,
+button {
   @apply accent-cyan-600 outline-cyan-600 dark:accent-cyan-300 dark:outline-cyan-300;
 }

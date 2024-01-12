@@ -1,8 +1,8 @@
-import {Signal} from '@preact/signals-react';
-import {Badge} from './Badge';
-import {Todo} from '../types';
+import { Signal } from '@preact/signals-react';
+import { Todo } from '../types';
+import { Badge } from './Badge';
 
-export const NavBar = ({todos}: {todos: Signal<Todo[]>}) => {
+export const NavBar = ({ todos }: { todos: Signal<Todo[]> }) => {
   return (
     <nav className="flex justify-between pb-4 mb-6 border-b-slate-300 dark:border-b-white border-opacity-30 border-b-2">
       <strong>📝 MY TODO APP</strong>

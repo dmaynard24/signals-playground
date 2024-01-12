@@ -1,9 +1,9 @@
-import {FormEvent, useState} from 'react';
-import {createNewTodo} from '../utils';
-import {Signal} from '@preact/signals-react';
-import {Todo} from '../types';
+import { Signal } from '@preact/signals-react';
+import { FormEvent, useState } from 'react';
+import { Todo } from '../types';
+import { createNewTodo } from '../utils';
 
-export const AddTodo = ({todos}: {todos: Signal<Todo[]>}) => {
+export const AddTodo = ({ todos }: { todos: Signal<Todo[]> }) => {
   const [newTodo, setNewTodo] = useState('');
 
   const addTodo = (e: FormEvent) => {
