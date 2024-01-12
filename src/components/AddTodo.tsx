@@ -21,13 +21,13 @@ export const AddTodo = ({ todos }: { todos: Signal<Todo[]> }) => {
           placeholder="New todo"
           value={newTodo}
           onChange={(e) => setNewTodo(e.target.value)}
-          className="flex-grow rounded-md px-4 mr-2 border-slate-300 border dark:border-none text-shadow dark:text-midnight"
+          className="flex-grow rounded-md px-4 mr-2 text-midnight"
           autoFocus
         />
         <button
           type="submit"
           disabled={newTodo.trim().length === 0}
-          className="py-1 px-4 bg-shadow text-white dark:bg-aero dark:text-midnight last:rounded-md disabled:text-opacity-60"
+          className="py-1 px-4 bg-aero text-midnight last:rounded-md disabled:text-opacity-60"
         >
           Add Todo
         </button>

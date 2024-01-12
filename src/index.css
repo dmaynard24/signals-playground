@@ -35,10 +35,13 @@
 }
 
 body {
-  @apply p-4;
+  background-image: url('/blob.png');
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: 40vw 40vh;
 }
 
 input,
 button {
-  @apply accent-shadow outline-shadow dark:accent-aero dark:outline-aero;
+  @apply outline-aero;
 }
