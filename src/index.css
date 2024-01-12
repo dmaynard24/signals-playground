@@ -24,7 +24,7 @@
 @tailwind utilities;
 
 :root {
-  font-family: 'Amazon Ember', Helvetica, Arial, sans-serif;
+  font-family: 'Assistant', Helvetica, Arial, sans-serif;
   line-height: 1.6;
   font-weight: 400;
 
@@ -40,5 +40,5 @@ body {
 
 input,
 button {
-  @apply accent-cyan-600 outline-cyan-600 dark:accent-cyan-300 dark:outline-cyan-300;
+  @apply accent-shadow outline-shadow dark:accent-aero dark:outline-aero;
 }

@@ -1,15 +1,14 @@
-import { Signal } from '@preact/signals-react';
-import { FormEvent, useState } from 'react';
+import { Dispatch, FormEvent, SetStateAction, useState } from 'react';
 import { Todo } from '../types';
 import { createNewTodo } from '../utils';
 
-export const AddTodo = ({ todos }: { todos: Signal<Todo[]> }) => {
+export const AddTodo = ({ todos, setTodos }: { todos: Todo[]; setTodos: Dispatch<SetStateAction<Todo[]>> }) => {
   const [newTodo, setNewTodo] = useState('');
 
   const addTodo = (e: FormEvent) => {
     e.preventDefault();
 
-    todos.value = [...todos.value, createNewTodo(newTodo)];
+    setTodos([...todos, createNewTodo(newTodo)]);
   };
 
   return (
@@ -21,13 +20,13 @@ export const AddTodo = ({ todos }: { todos: Signal<Todo[]> }) => {
           placeholder="New todo"
           value={newTodo}
           onChange={(e) => setNewTodo(e.target.value)}
-          className="flex-grow rounded-md px-4 mr-2 border-slate-300 border dark:border-none text-slate-900"
+          className="flex-grow rounded-md px-4 mr-2 border-slate-300 border dark:border-none text-shadow dark:text-midnight"
           autoFocus
         />
         <button
           type="submit"
           disabled={newTodo.trim().length === 0}
-          className="py-1 px-4 bg-cyan-600 text-white dark:bg-cyan-300 dark:text-slate-700 last:rounded-full disabled:text-opacity-60"
+          className="py-1 px-4 bg-shadow text-white dark:bg-aero dark:text-midnight last:rounded-md disabled:text-opacity-60"
         >
           Add Todo
         </button>
