@@ -5,12 +5,11 @@ import { Todos } from './components/Todos';
 import { DEFAULT_TODOS } from './constants';
 
 export const App = () => {
-  // const todos = useSignal(DEFAULT_TODOS);
   const [todos, setTodos] = useState(DEFAULT_TODOS);
 
   return (
     <>
-      <NavBar todos={todos} />
+      <NavBar />
       <Todos todos={todos} setTodos={setTodos} />
       <Footer />
     </>
