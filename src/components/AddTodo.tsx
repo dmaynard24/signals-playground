@@ -1,10 +1,10 @@
-import { Signal } from '@preact/signals-react';
-import { FormEvent, useState } from 'react';
-import { Todo } from '../types';
-import { createNewTodo } from '../utils';
+import {FormEvent, useContext, useState} from 'react';
+import {TodosContext} from '../context/todos';
+import {createNewTodo} from '../utils';
 
-export const AddTodo = ({ todos }: { todos: Signal<Todo[]> }) => {
+export const AddTodo = () => {
   const [newTodo, setNewTodo] = useState('');
+  const {todos} = useContext(TodosContext);
 
   const addTodo = (e: FormEvent) => {
     e.preventDefault();

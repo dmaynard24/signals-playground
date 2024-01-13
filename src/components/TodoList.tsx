@@ -1,7 +1,9 @@
-import { Signal } from '@preact/signals-react';
-import { Todo } from '../types';
+import {useContext} from 'react';
+import {TodosContext} from '../context/todos';
 
-export const TodoList = ({ todos }: { todos: Signal<Todo[]> }) => {
+export const TodoList = () => {
+  const {todos} = useContext(TodosContext);
+
   const toggleTodo = (todoId: string) => {
     todos.value = todos.value.map((todo) => {
       if (todo.id === todoId) {
