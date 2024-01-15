@@ -10,6 +10,8 @@ export const AddTodo = () => {
     e.preventDefault();
 
     todos.value = [...todos.value, createNewTodo(newTodo)];
+
+    setNewTodo('');
   };
 
   return (

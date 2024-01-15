@@ -1,4 +1,4 @@
-import {Signal, signal, useSignal} from '@preact/signals-react';
+import {Signal, signal} from '@preact/signals-react';
 import {PropsWithChildren, createContext} from 'react';
 import {DEFAULT_TODOS} from '../constants';
 import {Todo} from '../types';
@@ -13,8 +13,6 @@ const DEFAULT_TODOS_CONTEXT: TodosContextType = {
 
 export const TodosContext = createContext(DEFAULT_TODOS_CONTEXT);
 
-export const TodosContextProvider: React.FC<PropsWithChildren> = ({children}) => {
-  const todos = useSignal(DEFAULT_TODOS);
-
-  return <TodosContext.Provider value={{todos}}>{children}</TodosContext.Provider>;
-};
+export const TodosContextProvider: React.FC<PropsWithChildren> = ({children}) => (
+  <TodosContext.Provider value={DEFAULT_TODOS_CONTEXT}>{children}</TodosContext.Provider>
+);
